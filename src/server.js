@@ -1,12 +1,16 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-mongoose.connect("mongodb+srv://Nirajgns:Ganesh123@cluster0.e9zl36g.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(process.env.DATABASE_CONNECTION_STRING)
   .then(function() {
 
     //!get route

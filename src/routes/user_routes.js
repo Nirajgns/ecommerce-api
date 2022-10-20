@@ -4,6 +4,7 @@ const userModel = require('./../models/user_model');
 router.post("/createaccount", async function(req, res) {
   const userData = req.body;
   const newUser = new userModel(userData);
+
   await newUser.save(function(err) {
     if (err)
     {
